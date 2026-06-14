@@ -1,0 +1,81 @@
+package com.gqt;
+
+import javax.swing.*;
+import java.awt.event.*;
+
+public class studentdata extends JFrame implements ActionListener {
+
+    JLabel l1, l2, l3, l4;
+    JTextField t1, t2, t3;
+    JTextArea ta;
+    JButton b1;
+
+    // Constructor
+    studentdata() {
+
+        setTitle("Student Database");
+
+        l1 = new JLabel("Name");
+        l2 = new JLabel("USN");
+        l3 = new JLabel("Branch");
+        l4 = new JLabel("Details");
+
+        t1 = new JTextField();
+        t2 = new JTextField();
+        t3 = new JTextField();
+
+        ta = new JTextArea();
+
+        b1 = new JButton("Submit");
+        b1.addActionListener(this);
+
+        setLayout(null);
+
+        l1.setBounds(50, 50, 100, 30);
+        t1.setBounds(150, 50, 150, 30);
+
+        l2.setBounds(50, 100, 100, 30);
+        t2.setBounds(150, 100, 150, 30);
+
+        l3.setBounds(50, 150, 100, 30);
+        t3.setBounds(150, 150, 150, 30);
+
+        b1.setBounds(120, 200, 100, 30);
+
+        l4.setBounds(50, 250, 100, 30);
+        ta.setBounds(50, 290, 300, 120);
+
+        add(l1);
+        add(t1);
+        add(l2);
+        add(t2);
+        add(l3);
+        add(t3);
+        add(b1);
+        add(l4);
+        add(ta);
+
+        setSize(450, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+
+        String name = t1.getText();
+        String usn = t2.getText();
+        String branch = t3.getText();
+
+        ta.setText(
+                "Student Details\n" +
+                "----------------------\n" +
+                "Name : " + name + "\n" +
+                "USN : " + usn + "\n" +
+                "Branch : " + branch
+        );
+    }
+
+    public static void main(String[] args) {
+        new studentdata();
+    }
+}
